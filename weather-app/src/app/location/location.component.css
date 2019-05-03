@@ -1,0 +1,9 @@
+.weather-ticket {
+    width: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: lavenderblush;
+    border: 1px solid black;
+    border-radius: 3px;
+    align-items: center;
+}
