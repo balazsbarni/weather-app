@@ -6,4 +6,10 @@
     border: 1px solid black;
     border-radius: 3px;
     align-items: center;
+    margin: 10px;
+}
+
+.weather-loc{
+    display: flex;
+    justify-content: center;
 }
