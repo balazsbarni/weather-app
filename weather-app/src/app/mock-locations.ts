@@ -1,4 +1,4 @@
-import Location from './Location';
+import { Location } from './Location';
 
 export const LOCATIONS: Location[] = [
     { city: 'Udvarhely', country: 'Romania', temperature: 20, status: 'sunny' },

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LOCATIONS } from '../mock-locations';
+import { Location } from '../Location';
+import { WeatherService } from '../weather.service';
+import { Observable } from 'rxjs';
+import { res } from '../res';
 
 @Component({
   selector: 'app-location',
@@ -9,10 +12,22 @@ import { LOCATIONS } from '../mock-locations';
 
 export class LocationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private weatherService: WeatherService) {}
 
-  locations = LOCATIONS;
+  locations: Location[];
 
   ngOnInit() {
+    this.getLocations();
+  }
+
+  getLocations() {
+   this.weatherService.getLocations()
+     .subscribe(x => this.transformLocations(x.list), err => console.log(err), () => console.log(1));
+  }
+
+  transformLocations(x) {
+
+    this.locations = x.map(loc => new Location(loc.name, loc.sys.country, loc.main.temp, loc.weather[0].description));
+    console.log(this.locations);
   }
 }
