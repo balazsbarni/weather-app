@@ -26,7 +26,7 @@ export class LocationComponent implements OnInit {
   }
 
   transformLocations(x) {
-
+    console.log("JHrll")
     this.locations = x.map(loc => new Location(loc.name, loc.sys.country, loc.main.temp, loc.weather[0].description));
     console.log(this.locations);
   }
